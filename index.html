@@ -56,12 +56,12 @@
         .coach-info-bar.loading { justify-content: center; }
         .coach-avatar { width: 36px; height: 36px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--white); }
         .coach-details { flex: 1; margin-left: 12px; }
-        .coach-name { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-        .coach-role { font-size: 12px; color: var(--blue-dark); }
-        .coach-status { font-size: 12px; color: var(--text-light); }
+        .coach-name { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+        .coach-role { font-size: 13px; color: var(--blue-dark); }
+        .coach-status { font-size: 13px; color: var(--text-light); }
         .notice-box { background: var(--yellow-light); border-left: 4px solid var(--yellow-dark); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; margin-bottom: 20px; overflow: hidden; word-wrap: break-word; }
-        .notice-title { font-size: 14px; font-weight: 600; color: var(--yellow-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-        .notice-list { font-size: 13px; color: var(--text-primary); line-height: 1.8; padding-left: 20px; }
+        .notice-title { font-size: 15px; font-weight: 600; color: var(--yellow-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+        .notice-list { font-size: 14px; color: var(--text-primary); line-height: 1.8; padding-left: 20px; }
         .notice-list li { margin-bottom: 4px; }
         .notice-highlight { color: var(--pink-dark); font-weight: 500; }
         .main-content { max-width: 680px; margin: 0 auto; padding: 20px 20px 40px; width: 100%; overflow-x: hidden; }
@@ -70,31 +70,30 @@
         .card-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 20px; }
         .card-title { font-size: 20px; font-weight: 700; color: var(--text-primary); }
         .card-desc { font-size: 14px; color: var(--text-light); margin-bottom: 24px; margin-left: 56px; }
-        .section-title { font-size: 15px; font-weight: 600; color: var(--green-dark); margin: 28px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--green-light); display: flex; align-items: center; gap: 8px; }
+        .section-title { font-size: 16px; font-weight: 600; color: var(--green-dark); margin: 28px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--green-light); display: flex; align-items: center; gap: 8px; }
         .section-title:first-of-type { margin-top: 0; }
         .section-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-        .form-group { margin-bottom: 24px; overflow: hidden; min-width: 0; }
+        .form-group { margin-bottom: 24px; overflow: visible; min-width: 0; }
         .form-group:last-child { margin-bottom: 0; }
-        .form-label { display: block; font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
+        .form-label { display: block; font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
         .form-label .required { color: var(--accent-dark); margin-left: 2px; }
-        .form-label .hint { font-weight: 400; color: var(--text-light); font-size: 13px; display: block; margin-top: 6px; line-height: 1.6; }
-        .form-input, .form-textarea, .form-select { width: 100%; max-width: 100%; padding: 12px 16px; font-size: 15px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; box-sizing: border-box; }
-        input[type="datetime-local"].form-input { width: 100%; max-width: 100%; box-sizing: border-box; }
+        .form-label .hint { font-weight: 400; color: var(--text-light); font-size: 14px; display: block; margin-top: 6px; line-height: 1.6; }
+        .form-input, .form-textarea, .form-select { width: 100%; max-width: 100%; padding: 12px 16px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; box-sizing: border-box; }
         .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(122, 193, 154, 0.15); }
         .form-input::placeholder, .form-textarea::placeholder { color: var(--text-light); }
         .form-input:disabled, .form-input:read-only { background: var(--gray-light); color: var(--text-secondary); cursor: not-allowed; }
         .form-textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
         .member-search-section { background: var(--blue-light); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; overflow: hidden; }
-        .search-title { font-size: 14px; font-weight: 600; color: var(--blue-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .search-title { font-size: 15px; font-weight: 600; color: var(--blue-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .search-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; width: 100%; }
         .search-input-group { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-        .search-input-group label { font-size: 13px; color: var(--text-secondary); }
-        .search-input-group input { padding: 10px 14px; font-size: 14px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--white); width: 100%; box-sizing: border-box; }
+        .search-input-group label { font-size: 14px; color: var(--text-secondary); }
+        .search-input-group input { padding: 10px 14px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--white); width: 100%; box-sizing: border-box; }
         .search-input-group input:focus { outline: none; border-color: var(--blue); }
-        .btn-search { padding: 10px 20px; font-size: 14px; font-weight: 600; font-family: inherit; background: var(--blue); color: var(--white); border: none; border-radius: var(--radius); cursor: pointer; white-space: nowrap; transition: all 0.25s ease; }
+        .btn-search { padding: 10px 20px; font-size: 15px; font-weight: 600; font-family: inherit; background: var(--blue); color: var(--white); border: none; border-radius: var(--radius); cursor: pointer; white-space: nowrap; transition: all 0.25s ease; }
         .btn-search:hover { background: var(--blue-dark); }
         .btn-search:disabled { opacity: 0.6; cursor: not-allowed; }
-        .search-result { margin-top: 16px; padding: 14px; border-radius: var(--radius); font-size: 14px; display: none; }
+        .search-result { margin-top: 16px; padding: 14px; border-radius: var(--radius); font-size: 15px; display: none; }
         .search-result.show { display: block; }
         .search-result.success { background: var(--green-light); border: 1px solid var(--green); color: var(--green-dark); }
         .search-result.error { background: var(--pink-light); border: 1px solid var(--pink); color: var(--pink-dark); }
@@ -102,36 +101,36 @@
         .member-avatar { width: 40px; height: 40px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: var(--white); }
         .member-details { flex: 1; }
         .member-name-row { display: flex; align-items: center; gap: 8px; }
-        .member-name { font-weight: 600; }
-        .member-id { font-size: 12px; background: var(--white); padding: 2px 8px; border-radius: 10px; }
-        .member-extra { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+        .member-name { font-weight: 600; font-size: 16px; }
+        .member-id { font-size: 13px; background: var(--white); padding: 2px 8px; border-radius: 10px; }
+        .member-extra { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
         .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
         .form-grid-2 .form-group { margin-bottom: 0; min-width: 0; }
         .inline-radio-group { display: flex; flex-wrap: wrap; gap: 20px; }
         .inline-radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .inline-radio-option input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; margin: 0; }
-        .inline-radio-text { font-size: 15px; font-weight: 500; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
-        .inline-radio-icon { font-size: 16px; }
+        .inline-radio-text { font-size: 16px; font-weight: 500; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
+        .inline-radio-icon { font-size: 18px; }
         .radio-group, .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
         .radio-option, .checkbox-option { position: relative; }
         .radio-option input, .checkbox-option input { position: absolute; opacity: 0; }
-        .radio-label, .checkbox-label { display: inline-flex; align-items: center; padding: 10px 18px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 50px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-primary); transition: all 0.25s ease; }
+        .radio-label, .checkbox-label { display: inline-flex; align-items: center; padding: 10px 18px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 50px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--text-primary); transition: all 0.25s ease; }
         .radio-option input:checked + .radio-label, .checkbox-option input:checked + .checkbox-label { background: var(--green-light); border-color: var(--primary); color: var(--green-dark); }
         .scale-group { display: flex; justify-content: space-between; gap: 6px; width: 100%; }
         .scale-option { flex: 1; position: relative; min-width: 0; }
         .scale-option input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 1; }
-        .scale-label { display: flex; align-items: center; justify-content: center; padding: 14px 8px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 10px; cursor: pointer; font-size: 15px; font-weight: 600; color: var(--text-secondary); transition: all 0.25s ease; }
+        .scale-label { display: flex; align-items: center; justify-content: center; padding: 14px 8px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--text-secondary); transition: all 0.25s ease; }
         .scale-option input:checked + .scale-label { background: var(--primary); border-color: var(--primary); color: var(--white); transform: scale(1.05); box-shadow: 0 4px 12px rgba(122, 193, 154, 0.4); }
-        .scale-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--text-light); }
+        .scale-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--text-light); }
         .other-input-group { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-        .other-input { flex: 1; padding: 10px 14px; font-size: 14px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; }
+        .other-input { flex: 1; padding: 10px 14px; font-size: 15px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; }
         .other-input:focus { outline: none; border-color: var(--primary); }
         .other-input::placeholder { color: var(--text-light); }
         .form-input.error, .form-textarea.error { border-color: var(--error); }
         .error-message { font-size: 13px; color: var(--error); margin-top: 6px; display: none; }
         .form-group.has-error .error-message { display: block; }
         .submit-section { margin-top: 32px; }
-        .btn-submit { width: 100%; padding: 16px 24px; font-size: 16px; font-weight: 600; font-family: inherit; border-radius: var(--radius); cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary); color: var(--white); border: none; box-shadow: 0 4px 15px rgba(122, 193, 154, 0.4); }
+        .btn-submit { width: 100%; padding: 16px 24px; font-size: 17px; font-weight: 600; font-family: inherit; border-radius: var(--radius); cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary); color: var(--white); border: none; box-shadow: 0 4px 15px rgba(122, 193, 154, 0.4); }
         .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(122, 193, 154, 0.5); }
         .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .success-page { display: none; text-align: center; padding: 60px 24px; }
@@ -154,7 +153,7 @@
         .error-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
         .error-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; white-space: pre-line; }
         @media (max-width: 767px) {
-            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 14px 40px; } .card { padding: 20px; border-radius: 16px; overflow: visible; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 14px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; width: 100%; max-width: 100%; } input[type="datetime-local"].form-input { width: calc(100% - 4px) !important; max-width: calc(100% - 4px) !important; } .form-grid-2 { grid-template-columns: 1fr; gap: 16px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 14px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 13px; border-radius: 8px; } .radio-label, .checkbox-label { padding: 8px 14px; font-size: 13px; } .section-title { font-size: 14px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 12px; } .member-search-section { padding: 16px; }
+            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 12px 40px; } .card { padding: 20px 22px; border-radius: 16px; overflow: visible; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 14px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; width: 100%; max-width: 100%; } .form-grid-2 { grid-template-columns: 1fr; gap: 16px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 14px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 13px; border-radius: 8px; } .radio-label, .checkbox-label { padding: 8px 14px; font-size: 13px; } .section-title { font-size: 14px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 12px; } .member-search-section { padding: 16px; }
         }
         /* ===== 大螢幕桌面 (> 1200px) ===== */
         @media (min-width: 1201px) {
@@ -181,8 +180,8 @@
             .coach-avatar { width: 32px; height: 32px; font-size: 13px; }
             .coach-name { font-size: 14px; }
             .coach-role { font-size: 11px; }
-            .main-content { padding: 14px 12px 36px; }
-            .card { padding: 18px; border-radius: 14px; }
+            .main-content { padding: 14px 10px 36px; }
+            .card { padding: 18px 20px; border-radius: 14px; }
             .card-icon { width: 36px; height: 36px; font-size: 16px; border-radius: 10px; }
             .card-title { font-size: 17px; }
             .card-desc { font-size: 12px; margin-left: 44px; margin-bottom: 20px; }
@@ -234,8 +233,8 @@
             .coach-name { font-size: 13px; }
             .coach-role { font-size: 10px; }
             .coach-status { font-size: 10px; }
-            .main-content { padding: 10px 8px 30px; }
-            .card { padding: 14px; border-radius: 12px; }
+            .main-content { padding: 10px 6px 30px; }
+            .card { padding: 14px 16px; border-radius: 12px; }
             .card-icon { width: 32px; height: 32px; font-size: 14px; }
             .card-title { font-size: 15px; }
             .card-desc { font-size: 11px; margin-left: 38px; }
@@ -664,10 +663,10 @@
                     coachLineId: currentCoach.lineId, coachId: currentCoach.coachId, coachName: document.getElementById('coachName').value,
                     memberId: document.getElementById('memberId').value || null, clientName: document.getElementById('clientName').value,
                     courseType: courseType, isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
-                    sessionTime: document.getElementById('sessionTime').value.replace('T', ' ') + ':00', preAssessment: document.getElementById('preAssessment').value,
+                    sessionTime: document.getElementById('sessionTime').value.replace('T', ' '), preAssessment: document.getElementById('preAssessment').value,
                     courseContent: courseContent.join(', '), purchaseWillingness: document.querySelector('input[name="purchaseWillingness"]:checked').value,
                     customerCare: document.getElementById('customerCare').value, promoInterest: promoInterest.join(', '),
-                    submittedAt: new Date().toISOString().slice(0, 19).replace('T', ' '), source: 'liff_form',
+                    submittedAt: new Date().toISOString().slice(0, 16).replace('T', ' '), source: 'liff_form',
                     targetSheet: courseType === '重訓' ? 'weight_training' : 'pilates'
                 };
                 console.log('📤 提交資料:', data);
