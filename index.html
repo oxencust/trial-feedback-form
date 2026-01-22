@@ -73,12 +73,13 @@
         .section-title { font-size: 15px; font-weight: 600; color: var(--green-dark); margin: 28px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--green-light); display: flex; align-items: center; gap: 8px; }
         .section-title:first-of-type { margin-top: 0; }
         .section-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-        .form-group { margin-bottom: 24px; }
+        .form-group { margin-bottom: 24px; overflow: hidden; min-width: 0; }
         .form-group:last-child { margin-bottom: 0; }
         .form-label { display: block; font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
         .form-label .required { color: var(--accent-dark); margin-left: 2px; }
         .form-label .hint { font-weight: 400; color: var(--text-light); font-size: 13px; display: block; margin-top: 6px; line-height: 1.6; }
         .form-input, .form-textarea, .form-select { width: 100%; max-width: 100%; padding: 12px 16px; font-size: 15px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; box-sizing: border-box; }
+        input[type="datetime-local"].form-input { width: 100%; max-width: 100%; box-sizing: border-box; }
         .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(122, 193, 154, 0.15); }
         .form-input::placeholder, .form-textarea::placeholder { color: var(--text-light); }
         .form-input:disabled { background: var(--gray-light); cursor: not-allowed; }
@@ -104,8 +105,8 @@
         .member-name { font-weight: 600; }
         .member-id { font-size: 12px; background: var(--white); padding: 2px 8px; border-radius: 10px; }
         .member-extra { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
-        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-grid-2 .form-group { margin-bottom: 0; }
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+        .form-grid-2 .form-group { margin-bottom: 0; min-width: 0; }
         .inline-radio-group { display: flex; flex-wrap: wrap; gap: 20px; }
         .inline-radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .inline-radio-option input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; margin: 0; }
@@ -153,7 +154,7 @@
         .error-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
         .error-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; white-space: pre-line; }
         @media (max-width: 767px) {
-            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 14px 40px; } .card { padding: 20px; border-radius: 16px; overflow: hidden; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 14px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; } .form-grid-2 { grid-template-columns: 1fr; gap: 16px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 14px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 13px; border-radius: 8px; } .radio-label, .checkbox-label { padding: 8px 14px; font-size: 13px; } .section-title { font-size: 14px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 12px; } .member-search-section { padding: 16px; }
+            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 14px 40px; } .card { padding: 20px; border-radius: 16px; overflow: hidden; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 14px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; width: 100%; max-width: 100%; } input[type="datetime-local"] { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; } .form-grid-2 { grid-template-columns: 1fr; gap: 16px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 14px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 13px; border-radius: 8px; } .radio-label, .checkbox-label { padding: 8px 14px; font-size: 13px; } .section-title { font-size: 14px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 12px; } .member-search-section { padding: 16px; }
         }
         /* ===== 大螢幕桌面 (> 1200px) ===== */
         @media (min-width: 1201px) {
@@ -324,10 +325,9 @@
                 <div class="card-header"><div class="card-icon">📝</div><div class="card-title">體驗回報表</div></div>
                 <div class="card-desc">請於體驗課後填寫以下資訊</div>
                 <div class="member-search-section">
-                    <div class="search-title">🔍 查詢學員編號</div>
-                    <div class="search-row">
-                        <div class="search-input-group"><label>學員姓名</label><input type="text" id="searchName" placeholder="輸入姓名"></div>
-                        <div class="search-input-group"><label>手機號碼</label><input type="tel" id="searchPhone" placeholder="輸入手機號碼"></div>
+                    <div class="search-title">🔍 查詢學員姓名</div>
+                    <div class="search-row" style="grid-template-columns: 1fr auto;">
+                        <div class="search-input-group"><label>學員編號</label><input type="text" id="searchMemberId" placeholder="輸入學員編號"></div>
                         <button type="button" class="btn-search" id="btnSearch" onclick="searchMember()">查詢</button>
                     </div>
                     <div class="search-result" id="searchResult"></div>
@@ -350,7 +350,7 @@
                 <div class="section-title"><span class="section-dot" style="background: var(--blue);"></span>基本資訊</div>
                 <div class="form-grid-2">
                     <div class="form-group"><label class="form-label">學員編號</label><input type="text" class="form-input" id="memberId" placeholder="透過上方查詢自動填入" readonly></div>
-                    <div class="form-group"><label class="form-label">客戶姓名<span class="required">*</span></label><input type="text" class="form-input" id="clientName" placeholder="請輸入客戶姓名" required><div class="error-message">請輸入客戶姓名</div></div>
+                    <div class="form-group"><label class="form-label">客戶姓名<span class="required">*</span></label><input type="text" class="form-input" id="clientName" placeholder="透過上方查詢自動填入" readonly required><div class="error-message">請先查詢學員編號</div></div>
                 </div>
                 <div class="form-grid-2">
                     <div class="form-group"><label class="form-label">體驗教練<span class="required">*</span></label><input type="text" class="form-input" id="coachName" placeholder="自動帶入" readonly><div class="error-message">請輸入教練姓名</div></div>
@@ -607,16 +607,15 @@
         }
 
         async function searchMember() {
-            const name = document.getElementById('searchName').value.trim();
-            const phone = document.getElementById('searchPhone').value.trim();
+            const memberId = document.getElementById('searchMemberId').value.trim();
             const resultDiv = document.getElementById('searchResult');
             const btn = document.getElementById('btnSearch');
-            if (!name && !phone) { resultDiv.className = 'search-result show error'; resultDiv.innerHTML = '請輸入姓名或手機號碼'; return; }
+            if (!memberId) { resultDiv.className = 'search-result show error'; resultDiv.innerHTML = '請輸入學員編號'; return; }
             btn.disabled = true; btn.textContent = '查詢中...'; resultDiv.className = 'search-result';
             try {
                 const response = await fetchWithTimeout(CONFIG.webhookUrl, {
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'search_member', name: name, phone: phone })
+                    body: JSON.stringify({ action: 'search_member', memberId: memberId })
                 });
                 const data = await response.json();
                 if (data && data.found && data.member) {
@@ -628,7 +627,7 @@
                 } else {
                     matchedMember = null;
                     resultDiv.className = 'search-result show error';
-                    resultDiv.innerHTML = '找不到符合的學員，請確認姓名或手機號碼';
+                    resultDiv.innerHTML = '找不到此學員編號';
                 }
             } catch (err) { console.error('Search error:', err); resultDiv.className = 'search-result show error'; resultDiv.innerHTML = '查詢失敗，請稍後再試'; }
             finally { btn.disabled = false; btn.textContent = '查詢'; }
@@ -694,7 +693,11 @@
         function resetForm() {
             document.getElementById('feedbackForm').reset(); document.getElementById('feedbackForm').style.display = 'block';
             document.getElementById('noticeBox').style.display = 'block'; document.getElementById('successPage').classList.remove('active');
-            matchedMember = null; document.getElementById('memberId').value = ''; document.getElementById('searchResult').className = 'search-result';
+            matchedMember = null; 
+            document.getElementById('memberId').value = ''; 
+            document.getElementById('clientName').value = '';
+            document.getElementById('searchMemberId').value = '';
+            document.getElementById('searchResult').className = 'search-result';
             document.getElementById('coachName').value = currentCoach.name || currentCoach.displayName || '';
             const now = new Date(); now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
             document.getElementById('sessionTime').value = now.toISOString().slice(0, 16);
