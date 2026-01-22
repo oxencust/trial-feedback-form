@@ -79,7 +79,8 @@
         .form-label .required { color: var(--accent-dark); margin-left: 2px; }
         .form-label .hint { font-weight: 400; color: var(--text-light); font-size: 14px; display: block; margin-top: 6px; line-height: 1.6; }
         .form-input, .form-textarea, .form-select { width: 100%; max-width: 100%; padding: 12px 16px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; box-sizing: border-box; }
-        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(122, 193, 154, 0.15); }
+        input[type="datetime-local"].form-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; min-width: 0; width: 100% !important; max-width: 100% !important; }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); }
         .form-input::placeholder, .form-textarea::placeholder { color: var(--text-light); }
         .form-input:disabled, .form-input:read-only { background: var(--gray-light); color: var(--text-secondary); cursor: not-allowed; }
         .form-textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
@@ -104,8 +105,8 @@
         .member-name { font-weight: 600; font-size: 16px; }
         .member-id { font-size: 13px; background: var(--white); padding: 2px 8px; border-radius: 10px; }
         .member-extra { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
-        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
-        .form-grid-2 .form-group { margin-bottom: 0; min-width: 0; }
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; overflow: hidden; }
+        .form-grid-2 .form-group { margin-bottom: 0; min-width: 0; overflow: hidden; }
         .inline-radio-group { display: flex; flex-wrap: wrap; gap: 20px; }
         .inline-radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .inline-radio-option input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; margin: 0; }
@@ -153,7 +154,7 @@
         .error-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
         .error-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; white-space: pre-line; }
         @media (max-width: 767px) {
-            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 12px 40px; } .card { padding: 20px 22px; border-radius: 16px; overflow: visible; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 14px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; width: 100%; max-width: 100%; } .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 12px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 14px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 13px; border-radius: 8px; } .radio-label, .checkbox-label { padding: 8px 14px; font-size: 13px; } .section-title { font-size: 14px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 12px; } .member-search-section { padding: 16px; }
+            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 12px 40px; } .card { padding: 20px 22px; border-radius: 16px; overflow: hidden; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 15px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; width: 100%; max-width: 100%; } .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 12px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 15px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 14px; border-radius: 8px; } .scale-labels { font-size: 12px; } .radio-label, .checkbox-label { padding: 10px 16px; font-size: 14px; } .section-title { font-size: 15px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 13px; } .member-search-section { padding: 16px; }
         }
         /* ===== 大螢幕桌面 (> 1200px) ===== */
         @media (min-width: 1201px) {
@@ -186,7 +187,7 @@
             .card-title { font-size: 17px; }
             .card-desc { font-size: 12px; margin-left: 44px; margin-bottom: 20px; }
             .form-group { margin-bottom: 20px; }
-            .form-label { font-size: 13px; margin-bottom: 8px; }
+            .form-label { font-size: 14px; margin-bottom: 8px; }
             .form-label .hint { font-size: 12px; }
             .form-input, .form-textarea { padding: 10px 12px; font-size: 16px; border-radius: 10px; }
             .form-textarea { min-height: 90px; }
@@ -196,17 +197,17 @@
             .btn-search { width: 100%; grid-column: auto; padding: 12px 16px; }
             .inline-radio-group { gap: 14px; }
             .inline-radio-option input[type="radio"] { width: 16px; height: 16px; }
-            .inline-radio-text { font-size: 13px; gap: 5px; }
+            .inline-radio-text { font-size: 14px; gap: 5px; }
             .scale-group { gap: 3px; }
-            .scale-label { padding: 10px 2px; font-size: 12px; border-radius: 6px; }
+            .scale-label { padding: 10px 2px; font-size: 13px; border-radius: 6px; }
             .scale-labels { font-size: 11px; margin-top: 6px; }
             .radio-group, .checkbox-group { gap: 6px; }
-            .radio-label, .checkbox-label { padding: 8px 12px; font-size: 12px; }
-            .section-title { font-size: 13px; margin: 22px 0 12px; padding-bottom: 8px; }
+            .radio-label, .checkbox-label { padding: 9px 14px; font-size: 13px; }
+            .section-title { font-size: 14px; margin: 22px 0 12px; padding-bottom: 8px; }
             .section-dot { width: 6px; height: 6px; }
             .notice-box { padding: 12px 14px; }
             .notice-title { font-size: 13px; margin-bottom: 8px; }
-            .notice-list { font-size: 11px; line-height: 1.7; padding-left: 16px; }
+            .notice-list { font-size: 12px; line-height: 1.7; padding-left: 16px; }
             .member-search-section { padding: 14px; }
             .search-title { font-size: 13px; }
             .member-avatar { width: 36px; height: 36px; font-size: 14px; }
@@ -240,7 +241,7 @@
             .card-title { font-size: 15px; }
             .card-desc { font-size: 11px; margin-left: 38px; }
             .form-group { margin-bottom: 16px; }
-            .form-label { font-size: 12px; }
+            .form-label { font-size: 13px; }
             .form-label .hint { font-size: 11px; }
             .form-input, .form-textarea { padding: 9px 10px; font-size: 16px; }
             .form-textarea { min-height: 80px; }
@@ -250,16 +251,16 @@
             .btn-search { padding: 10px 14px; font-size: 13px; }
             .search-result { padding: 10px; font-size: 12px; }
             .inline-radio-group { gap: 10px; }
-            .inline-radio-text { font-size: 12px; }
+            .inline-radio-text { font-size: 13px; }
             .scale-group { gap: 2px; }
-            .scale-label { padding: 8px 1px; font-size: 11px; border-radius: 5px; }
+            .scale-label { padding: 8px 1px; font-size: 12px; border-radius: 5px; }
             .scale-labels { font-size: 10px; }
-            .radio-label, .checkbox-label { padding: 6px 10px; font-size: 11px; }
-            .section-title { font-size: 12px; margin: 18px 0 10px; }
+            .radio-label, .checkbox-label { padding: 7px 10px; font-size: 12px; }
+            .section-title { font-size: 13px; margin: 18px 0 10px; }
             .section-dot { width: 5px; height: 5px; }
             .notice-box { padding: 10px 12px; }
             .notice-title { font-size: 12px; }
-            .notice-list { font-size: 10px; padding-left: 14px; }
+            .notice-list { font-size: 11px; padding-left: 14px; }
             .member-search-section { padding: 12px; }
             .search-title { font-size: 12px; }
             .member-avatar { width: 32px; height: 32px; font-size: 12px; }
@@ -348,7 +349,7 @@
                         <label class="inline-radio-option"><input type="radio" name="isAiCustomer" value="否"><span class="inline-radio-text">否</span></label>
                     </div>
                 </div>
-                <div class="section-title"><span class="section-dot" style="background: var(--blue);"></span>基本資訊</div>
+                <div class="section-title"><span class="section-dot" style="background: var(--blue);"></span>基本資訊<span class="hint" style="margin-left: 8px; font-weight: 400;">查詢後自動帶入</span></div>
                 <div class="form-grid-2">
                     <div class="form-group"><label class="form-label">學員編號</label><input type="text" class="form-input" id="memberId" placeholder="透過上方查詢自動填入" readonly></div>
                     <div class="form-group"><label class="form-label">客戶姓名<span class="required">*</span></label><input type="text" class="form-input" id="clientName" placeholder="透過上方查詢自動填入" readonly required><div class="error-message">請先查詢學員編號</div></div>
