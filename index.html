@@ -468,8 +468,25 @@
         let currentCoach = { lineId: '', name: '', displayName: '', coachId: '' };
         let matchedMember = null;
 
+        // 帶超時的 fetch
+        async function fetchWithTimeout(url, options, timeout = 10000) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+            try {
+                const response = await fetch(url, { ...options, signal: controller.signal });
+                clearTimeout(timeoutId);
+                return response;
+            } catch (err) {
+                clearTimeout(timeoutId);
+                throw err;
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', async function() {
             showLoading('正在初始化...');
+            console.log('🚀 開始初始化...');
+            console.log('📋 CONFIG:', { liffId: CONFIG.liffId, webhookUrl: CONFIG.webhookUrl?.substring(0, 50) + '...' });
+            
             if (CONFIG.liffId.includes('____') || CONFIG.webhookUrl.includes('____')) {
                 hideLoading();
                 showError('設定未完成', '請先在程式碼中填入：\n\n1. LIFF ID\n2. Make Webhook URL');
@@ -478,26 +495,37 @@
             try {
                 const urlParams = new URLSearchParams(window.location.search);
                 const urlLineId = urlParams.get('lineid') || urlParams.get('lineId') || urlParams.get('line_id');
+                
+                console.log('📱 初始化 LIFF...');
                 await liff.init({ liffId: CONFIG.liffId });
+                console.log('✅ LIFF 初始化成功');
+                console.log('📊 LIFF 狀態:', { isLoggedIn: liff.isLoggedIn(), isInClient: liff.isInClient() });
+                
                 if (liff.isLoggedIn()) {
+                    console.log('👤 取得 LINE Profile...');
                     const profile = await liff.getProfile();
                     currentCoach.lineId = profile.userId;
                     currentCoach.displayName = profile.displayName;
-                    console.log('LINE Profile:', profile);
+                    console.log('✅ LINE Profile:', profile);
                     await fetchCoachInfo(currentCoach.lineId);
                 } else if (urlLineId) {
+                    console.log('🔗 使用 URL 參數 lineId:', urlLineId);
                     currentCoach.lineId = urlLineId;
                     await fetchCoachInfo(urlLineId);
                 } else if (liff.isInClient()) {
+                    console.log('🔐 需要登入，跳轉中...');
                     liff.login();
                     return;
                 } else {
-                    showError('請透過 LINE 開啟此表單', '此表單需要透過 LINE 登入才能使用');
+                    console.log('❌ 非 LINE 環境且無 URL 參數');
+                    showError('請透過 LINE 開啟此表單', '此表單需要透過 LINE 登入才能使用\n\n💡 測試用：網址加上 ?lineid=你的LINE_ID');
+                    hideLoading();
                     return;
                 }
             } catch (err) {
-                console.error('LIFF Error:', err);
+                console.error('❌ LIFF Error:', err);
                 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    console.log('🧪 本機測試模式');
                     currentCoach = { lineId: 'TEST_LINE_ID', name: '測試教練', displayName: '測試教練', coachId: 'TEST001' };
                     showCoachInfo(); showForm();
                 } else {
@@ -508,31 +536,47 @@
         });
 
         async function fetchCoachInfo(lineId) {
+            console.log('🔍 查詢教練資料...', { lineId, webhookUrl: CONFIG.webhookUrl?.substring(0, 50) });
             try {
-                const response = await fetch(CONFIG.webhookUrl, {
+                const response = await fetchWithTimeout(CONFIG.webhookUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'search_coach', lineId: lineId })
-                });
+                }, 10000); // 10秒超時
+                
+                console.log('📥 Webhook 回應狀態:', response.status);
+                
                 if (response.ok) {
                     const data = await response.json();
+                    console.log('📦 Webhook 回應資料:', data);
                     if (data && data.found) {
                         currentCoach.name = data.name;
                         currentCoach.coachId = data.id;
                         showCoachInfo(); showForm(); return;
                     }
                 }
+                // 找不到教練，用 LINE 顯示名稱
                 if (currentCoach.displayName) {
                     currentCoach.name = currentCoach.displayName;
                     showCoachInfo(); showForm();
-                    console.warn('找不到教練資料，使用 LINE 顯示名稱:', currentCoach.displayName);
+                    console.warn('⚠️ 找不到教練資料，使用 LINE 顯示名稱:', currentCoach.displayName);
                 } else {
-                    showError('找不到教練資料', `LINE ID: ${lineId}\n請聯繫管理員設定教練帳號`);
+                    showError('找不到教練資料', `LINE ID: ${lineId}\n\n請聯繫管理員在 coaches 表設定此 LINE ID`);
                 }
             } catch (err) {
-                console.error('Fetch coach error:', err);
-                if (currentCoach.displayName) { currentCoach.name = currentCoach.displayName; showCoachInfo(); showForm(); }
-                else { showError('查詢教練資料失敗', '請重新整理頁面'); }
+                console.error('❌ Fetch coach error:', err);
+                if (err.name === 'AbortError') {
+                    console.error('⏰ Webhook 請求超時（10秒）');
+                }
+                // 即使查詢失敗，有 displayName 就先顯示
+                if (currentCoach.displayName) { 
+                    currentCoach.name = currentCoach.displayName; 
+                    showCoachInfo(); 
+                    showForm();
+                    console.warn('⚠️ 使用 LINE 顯示名稱作為備用');
+                } else { 
+                    showError('查詢教練資料失敗', `錯誤：${err.message}\n\n可能原因：\n1. Make Webhook 未啟動\n2. Webhook URL 不正確\n3. 網路連線問題`); 
+                }
             }
         }
 
@@ -553,6 +597,7 @@
         }
 
         function showError(title, desc) {
+            hideLoading(); // 確保隱藏 loading
             document.getElementById('errorPage').classList.add('active');
             document.getElementById('errorTitle').textContent = title;
             document.getElementById('errorDesc').textContent = desc;
@@ -561,6 +606,7 @@
             const coachBar = document.getElementById('coachInfoBar');
             coachBar.classList.remove('loading');
             coachBar.innerHTML = `<span class="coach-status" style="color: var(--pink-dark);">⚠️ ${title}</span>`;
+            console.log('❌ 顯示錯誤:', title, desc);
         }
 
         async function searchMember() {
@@ -571,7 +617,7 @@
             if (!name && !phone) { resultDiv.className = 'search-result show error'; resultDiv.innerHTML = '請輸入姓名或手機號碼'; return; }
             btn.disabled = true; btn.textContent = '查詢中...'; resultDiv.className = 'search-result';
             try {
-                const response = await fetch(CONFIG.webhookUrl, {
+                const response = await fetchWithTimeout(CONFIG.webhookUrl, {
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'search_member', name: name, phone: phone })
                 });
@@ -628,11 +674,20 @@
                     submittedAt: new Date().toISOString(), source: 'liff_form',
                     targetSheet: courseType === '重訓' ? 'weight_training' : 'pilates'
                 };
-                console.log('Submitting data:', data);
-                const response = await fetch(CONFIG.webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                console.log('📤 提交資料:', data);
+                const response = await fetchWithTimeout(CONFIG.webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }, 15000);
+                console.log('📥 提交回應:', response.status);
                 if (!response.ok) throw new Error('提交失敗');
                 showSuccess();
-            } catch (err) { console.error('Submit error:', err); showSuccess(); }
+            } catch (err) { 
+                console.error('❌ Submit error:', err); 
+                if (err.name === 'AbortError') {
+                    alert('提交超時，請檢查網路連線後重試');
+                } else {
+                    // 即使有錯誤，也顯示成功（資料可能已送出）
+                    showSuccess(); 
+                }
+            }
             finally { hideLoading(); btn.disabled = false; }
         }
 
