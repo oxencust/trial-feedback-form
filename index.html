@@ -664,10 +664,10 @@
                     coachLineId: currentCoach.lineId, coachId: currentCoach.coachId, coachName: document.getElementById('coachName').value,
                     memberId: document.getElementById('memberId').value || null, clientName: document.getElementById('clientName').value,
                     courseType: courseType, isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
-                    sessionTime: document.getElementById('sessionTime').value, preAssessment: document.getElementById('preAssessment').value,
+                    sessionTime: document.getElementById('sessionTime').value.replace('T', ' ') + ':00', preAssessment: document.getElementById('preAssessment').value,
                     courseContent: courseContent.join(', '), purchaseWillingness: document.querySelector('input[name="purchaseWillingness"]:checked').value,
                     customerCare: document.getElementById('customerCare').value, promoInterest: promoInterest.join(', '),
-                    submittedAt: new Date().toISOString(), source: 'liff_form',
+                    submittedAt: new Date().toISOString().slice(0, 19).replace('T', ' '), source: 'liff_form',
                     targetSheet: courseType === '重訓' ? 'weight_training' : 'pilates'
                 };
                 console.log('📤 提交資料:', data);
