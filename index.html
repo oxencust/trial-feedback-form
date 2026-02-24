@@ -429,8 +429,6 @@
                     resultsDiv.innerHTML = data.data.map((item, index) => `
                         <div class="search-result-item" onclick="selectConsultation(${index})">
                             <div class="result-name">${escapeHtml(item.name)}</div>
-                            <div class="result-info">📞 ${escapeHtml(item.phone || '無電話')} ｜ ${escapeHtml(item.course || '')}</div>
-                            <div class="result-coach">👤 負責教練：${escapeHtml(item.coach || '未指定')}</div>
                         </div>
                     `).join('');
                     window.searchResults = data.data;
@@ -456,7 +454,7 @@
             document.getElementById('selectedMember').className = 'selected-member show';
             document.getElementById('selectedAvatar').textContent = item.name?.charAt(0) || '?';
             document.getElementById('selectedName').textContent = item.name;
-            document.getElementById('selectedExtra').textContent = `📞 ${item.phone || '無'} ｜ 👤 ${item.coach || '未指定'}`;
+            document.getElementById('selectedExtra').style.display = 'none';
             
             document.getElementById('clientName').value = item.name || '';
             document.getElementById('clientPhone').value = item.phone || '';
