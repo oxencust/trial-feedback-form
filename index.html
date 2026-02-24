@@ -328,10 +328,11 @@
         /* ===== 設定 ===== */
         const CONFIG = {
             liffId: '2007947083-zbtrhdFK',
-            appsScriptUrl: 'https://script.google.com/macros/s/AKfycbzyGWlVQobkQKTM56qZd6z8hsV1wyUfs5EYlOWFSYb_hBo6k84WeOn4V2UaSLPLApYt/exec'
+            appsScriptUrl: 'https://script.google.com/macros/s/AKfycbzyGWlVQobkQKTM56qZd6z8hsV1wyUfs5EYlOWFSYb_hBo6k84WeOn4V2UaSLPLApYt/exec',
+            makeWebhookUrl: 'https://hook.us2.make.com/5fvtrvpkxzfnwgu6six72t3jpu8fmhu3'  // 查詢教練用
         };
 
-        let currentCoach = { lineId: '', name: '', displayName: '' };
+        let currentCoach = { lineId: '', name: '', displayName: '', coachId: '' };
         let selectedConsultation = null;
 
         async function fetchWithTimeout(url, options, timeout = 15000) {
@@ -360,9 +361,9 @@
                     const profile = await liff.getProfile();
                     currentCoach.lineId = profile.userId;
                     currentCoach.displayName = profile.displayName;
-                    currentCoach.name = profile.displayName;
-                    showCoachInfo();
-                    showForm();
+                    
+                    // 用 Make 查詢教練資料
+                    await fetchCoachInfo(profile.userId);
                 } else {
                     liff.login();
                     return;
@@ -379,6 +380,48 @@
             }
             hideLoading();
         });
+
+        // 用 Make 查詢教練資料
+        async function fetchCoachInfo(lineId) {
+            try {
+                const response = await fetchWithTimeout(CONFIG.makeWebhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'search_coach', lineId: lineId })
+                }, 10000);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.found) {
+                        currentCoach.name = data.name;
+                        currentCoach.coachId = data.id;
+                        showCoachInfo();
+                        showForm();
+                        return;
+                    }
+                }
+                
+                // 找不到教練，用 LINE 顯示名稱
+                if (currentCoach.displayName) {
+                    currentCoach.name = currentCoach.displayName;
+                    showCoachInfo();
+                    showForm();
+                    console.warn('找不到教練資料，使用 LINE 顯示名稱');
+                } else {
+                    showError('找不到教練資料', '請聯繫管理員設定此 LINE ID');
+                }
+            } catch (err) {
+                console.error('Fetch coach error:', err);
+                // 查詢失敗，用 LINE 顯示名稱
+                if (currentCoach.displayName) {
+                    currentCoach.name = currentCoach.displayName;
+                    showCoachInfo();
+                    showForm();
+                } else {
+                    showError('查詢教練資料失敗', err.message);
+                }
+            }
+        }
 
         function showCoachInfo() {
             const coachBar = document.getElementById('coachInfoBar');
