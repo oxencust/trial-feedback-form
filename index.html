@@ -30,24 +30,18 @@
             --bg-input: var(--white);
             --primary: var(--green);
             --primary-dark: var(--green-dark);
-            --primary-light: var(--green-light);
-            --accent: var(--pink);
-            --accent-dark: var(--pink-dark);
             --text-primary: #2d3a33;
             --text-secondary: var(--gray);
             --text-light: #9ca89f;
             --border: #d8e0db;
-            --border-focus: var(--green);
-            --success: var(--green);
             --error: var(--pink-dark);
             --radius: 12px;
             --radius-lg: 20px;
             --shadow: 0 4px 20px rgba(95, 132, 111, 0.1);
-            --shadow-lg: 0 8px 30px rgba(95, 132, 111, 0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { overflow-x: hidden; width: 100%; max-width: 100vw; }
-        body { font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-main); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        body { font-family: 'Noto Sans TC', -apple-system, sans-serif; background: var(--bg-main); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
         .header { background: var(--white); padding: 16px 24px; text-align: center; box-shadow: 0 2px 10px rgba(95, 132, 111, 0.08); }
         .logo { font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .logo-icon { font-size: 24px; }
@@ -59,13 +53,13 @@
         .coach-name { font-size: 16px; font-weight: 600; color: var(--text-primary); }
         .coach-role { font-size: 13px; color: var(--blue-dark); }
         .coach-status { font-size: 13px; color: var(--text-light); }
-        .notice-box { background: var(--yellow-light); border-left: 4px solid var(--yellow-dark); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; margin-bottom: 20px; overflow: hidden; word-wrap: break-word; }
+        .notice-box { background: var(--yellow-light); border-left: 4px solid var(--yellow-dark); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; margin-bottom: 20px; }
         .notice-title { font-size: 15px; font-weight: 600; color: var(--yellow-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
         .notice-list { font-size: 14px; color: var(--text-primary); line-height: 1.8; padding-left: 20px; }
         .notice-list li { margin-bottom: 4px; }
         .notice-highlight { color: var(--pink-dark); font-weight: 500; }
-        .main-content { max-width: 680px; margin: 0 auto; padding: 20px 20px 40px; width: 100%; overflow-x: hidden; }
-        .card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 16px; box-shadow: var(--shadow); overflow: hidden; }
+        .main-content { max-width: 680px; margin: 0 auto; padding: 20px 20px 40px; width: 100%; }
+        .card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 16px; box-shadow: var(--shadow); }
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
         .card-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 20px; }
         .card-title { font-size: 20px; font-weight: 700; color: var(--text-primary); }
@@ -73,76 +67,80 @@
         .section-title { font-size: 16px; font-weight: 600; color: var(--green-dark); margin: 28px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--green-light); display: flex; align-items: center; gap: 8px; }
         .section-title:first-of-type { margin-top: 0; }
         .section-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-        .form-group { margin-bottom: 24px; overflow: visible; min-width: 0; }
+        .form-group { margin-bottom: 24px; }
         .form-group:last-child { margin-bottom: 0; }
         .form-label { display: block; font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
-        .form-label .required { color: var(--accent-dark); margin-left: 2px; }
+        .form-label .required { color: var(--pink-dark); margin-left: 2px; }
         .form-label .hint { font-weight: 400; color: var(--text-light); font-size: 14px; display: block; margin-top: 6px; line-height: 1.6; }
-        .form-input, .form-textarea, .form-select { width: 100%; max-width: 100%; padding: 12px 16px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; box-sizing: border-box; }
-        input[type="datetime-local"].form-input { -webkit-appearance: none; -moz-appearance: none; appearance: none; min-width: 0; width: 100% !important; max-width: 100% !important; }
-        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); }
+        .form-input, .form-textarea { width: 100%; padding: 12px 16px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--primary); }
         .form-input::placeholder, .form-textarea::placeholder { color: var(--text-light); }
-        .form-input:disabled, .form-input:read-only { background: var(--gray-light); color: var(--text-secondary); cursor: not-allowed; }
+        .form-input:disabled, .form-input:read-only { background: var(--gray-light); color: var(--text-secondary); }
         .form-textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
-        .member-search-section { background: var(--blue-light); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; overflow: hidden; }
+        .member-search-section { background: var(--blue-light); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; }
         .search-title { font-size: 15px; font-weight: 600; color: var(--blue-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .search-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; width: 100%; }
-        .search-input-group { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+        .search-row { display: flex; gap: 12px; align-items: end; }
+        .search-input-group { flex: 1; display: flex; flex-direction: column; gap: 6px; }
         .search-input-group label { font-size: 14px; color: var(--text-secondary); }
-        .search-input-group input { padding: 10px 14px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--white); width: 100%; box-sizing: border-box; }
+        .search-input-group input { padding: 10px 14px; font-size: 16px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--white); width: 100%; }
         .search-input-group input:focus { outline: none; border-color: var(--blue); }
         .btn-search { padding: 10px 20px; font-size: 15px; font-weight: 600; font-family: inherit; background: var(--blue); color: var(--white); border: none; border-radius: var(--radius); cursor: pointer; white-space: nowrap; transition: all 0.25s ease; }
         .btn-search:hover { background: var(--blue-dark); }
         .btn-search:disabled { opacity: 0.6; cursor: not-allowed; }
-        .search-result { margin-top: 16px; padding: 14px; border-radius: var(--radius); font-size: 15px; display: none; }
-        .search-result.show { display: block; }
-        .search-result.success { background: var(--green-light); border: 1px solid var(--green); color: var(--green-dark); }
-        .search-result.error { background: var(--pink-light); border: 1px solid var(--pink); color: var(--pink-dark); }
-        .member-info { display: flex; align-items: center; gap: 12px; }
-        .member-avatar { width: 40px; height: 40px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: var(--white); }
-        .member-details { flex: 1; }
-        .member-name-row { display: flex; align-items: center; gap: 8px; }
-        .member-name { font-weight: 600; font-size: 16px; }
-        .member-id { font-size: 13px; background: var(--white); padding: 2px 8px; border-radius: 10px; }
-        .member-extra { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
-        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; overflow: hidden; }
-        .form-grid-2 .form-group { margin-bottom: 0; min-width: 0; overflow: hidden; }
+        .search-results { margin-top: 16px; display: none; max-height: 300px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--white); }
+        .search-results.show { display: block; }
+        .search-results.empty { padding: 16px; text-align: center; color: var(--text-light); }
+        .search-result-item { padding: 14px 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+        .search-result-item:last-child { border-bottom: none; }
+        .search-result-item:hover { background: var(--green-light); }
+        .result-name { font-weight: 600; font-size: 15px; color: var(--text-primary); }
+        .result-info { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .result-coach { font-size: 12px; color: var(--blue-dark); margin-top: 2px; }
+        .selected-member { margin-top: 16px; padding: 14px; border-radius: var(--radius); background: var(--green-light); border: 1px solid var(--green); display: none; }
+        .selected-member.show { display: block; }
+        .selected-member-info { display: flex; align-items: center; gap: 12px; }
+        .selected-avatar { width: 40px; height: 40px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: var(--white); }
+        .selected-details { flex: 1; }
+        .selected-name { font-weight: 600; font-size: 16px; color: var(--green-dark); }
+        .selected-extra { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+        .btn-clear { padding: 6px 12px; font-size: 12px; background: transparent; border: 1px solid var(--green-dark); color: var(--green-dark); border-radius: 6px; cursor: pointer; }
+        .btn-clear:hover { background: var(--green-dark); color: var(--white); }
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-grid-2 .form-group { margin-bottom: 0; }
         .inline-radio-group { display: flex; flex-wrap: wrap; gap: 20px; }
         .inline-radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .inline-radio-option input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; margin: 0; }
         .inline-radio-text { font-size: 16px; font-weight: 500; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
         .inline-radio-icon { font-size: 18px; }
-        .radio-group, .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
-        .radio-option, .checkbox-option { position: relative; }
-        .radio-option input, .checkbox-option input { position: absolute; opacity: 0; }
-        .radio-label, .checkbox-label { display: inline-flex; align-items: center; padding: 10px 18px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 50px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--text-primary); transition: all 0.25s ease; }
-        .radio-option input:checked + .radio-label, .checkbox-option input:checked + .checkbox-label { background: var(--green-light); border-color: var(--primary); color: var(--green-dark); }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .checkbox-option { position: relative; }
+        .checkbox-option input { position: absolute; opacity: 0; }
+        .checkbox-label { display: inline-flex; align-items: center; padding: 10px 18px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 50px; cursor: pointer; font-size: 15px; font-weight: 500; color: var(--text-primary); transition: all 0.25s ease; }
+        .checkbox-option input:checked + .checkbox-label { background: var(--green-light); border-color: var(--primary); color: var(--green-dark); }
         .scale-group { display: flex; justify-content: space-between; gap: 6px; width: 100%; }
-        .scale-option { flex: 1; position: relative; min-width: 0; }
+        .scale-option { flex: 1; position: relative; }
         .scale-option input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 1; }
         .scale-label { display: flex; align-items: center; justify-content: center; padding: 14px 8px; background: var(--gray-light); border: 2px solid var(--border); border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--text-secondary); transition: all 0.25s ease; }
         .scale-option input:checked + .scale-label { background: var(--primary); border-color: var(--primary); color: var(--white); transform: scale(1.05); box-shadow: 0 4px 12px rgba(122, 193, 154, 0.4); }
         .scale-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--text-light); }
         .other-input-group { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-        .other-input { flex: 1; padding: 10px 14px; font-size: 15px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); transition: all 0.25s ease; }
+        .other-input { flex: 1; padding: 10px 14px; font-size: 15px; font-family: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg-input); color: var(--text-primary); }
         .other-input:focus { outline: none; border-color: var(--primary); }
-        .other-input::placeholder { color: var(--text-light); }
         .form-input.error, .form-textarea.error { border-color: var(--error); }
         .error-message { font-size: 13px; color: var(--error); margin-top: 6px; display: none; }
         .form-group.has-error .error-message { display: block; }
         .submit-section { margin-top: 32px; }
         .btn-submit { width: 100%; padding: 16px 24px; font-size: 17px; font-weight: 600; font-family: inherit; border-radius: var(--radius); cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary); color: var(--white); border: none; box-shadow: 0 4px 15px rgba(122, 193, 154, 0.4); }
-        .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(122, 193, 154, 0.5); }
+        .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); }
         .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .success-page { display: none; text-align: center; padding: 60px 24px; }
         .success-page.active { display: block; animation: fadeSlideIn 0.4s ease; }
         @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-        .success-icon { width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 40px; color: var(--white); animation: scaleIn 0.5s ease 0.2s both; box-shadow: 0 8px 30px rgba(122, 193, 154, 0.4); }
+        .success-icon { width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 40px; color: var(--white); animation: scaleIn 0.5s ease 0.2s both; }
         @keyframes scaleIn { from { transform: scale(0); } to { transform: scale(1); } }
         .success-title { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
         .success-message { font-size: 15px; color: var(--text-secondary); margin-bottom: 32px; line-height: 1.8; }
-        .btn-reset { display: inline-flex; padding: 14px 40px; font-size: 15px; font-weight: 600; font-family: inherit; border-radius: var(--radius); cursor: pointer; background: var(--primary); color: var(--white); border: none; box-shadow: 0 4px 15px rgba(122, 193, 154, 0.4); transition: all 0.25s ease; }
-        .btn-reset:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-reset { display: inline-flex; padding: 14px 40px; font-size: 15px; font-weight: 600; font-family: inherit; border-radius: var(--radius); cursor: pointer; background: var(--primary); color: var(--white); border: none; }
         .loading-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.95); z-index: 1000; align-items: center; justify-content: center; flex-direction: column; }
         .loading-overlay.active { display: flex; }
         .loading-spinner { width: 48px; height: 48px; border: 4px solid var(--green-light); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 16px; }
@@ -154,148 +152,15 @@
         .error-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
         .error-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; white-space: pre-line; }
         @media (max-width: 767px) {
-            .header { padding: 14px 16px; } .logo { font-size: 18px; } .logo-sub { font-size: 14px; } .coach-info-bar { padding: 10px 16px; } .main-content { padding: 16px 12px 40px; } .card { padding: 20px 22px; border-radius: 16px; overflow: hidden; } .card-header { gap: 10px; } .card-icon { width: 40px; height: 40px; font-size: 18px; } .card-title { font-size: 18px; } .card-desc { font-size: 13px; margin-left: 50px; } .form-label { font-size: 15px; } .form-input, .form-textarea { padding: 11px 14px; font-size: 16px; width: 100%; max-width: 100%; } .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 12px; } .search-row { grid-template-columns: 1fr; gap: 10px; } .search-row .btn-search { grid-column: auto; width: 100%; } .inline-radio-group { gap: 16px; } .inline-radio-text { font-size: 15px; } .scale-group { gap: 4px; } .scale-label { padding: 12px 4px; font-size: 14px; border-radius: 8px; } .scale-labels { font-size: 12px; } .radio-label, .checkbox-label { padding: 10px 16px; font-size: 14px; } .section-title { font-size: 15px; margin: 24px 0 14px; } .notice-box { padding: 14px 16px; } .notice-list { font-size: 13px; } .member-search-section { padding: 16px; }
+            .main-content { padding: 16px 12px 40px; }
+            .card { padding: 20px 22px; }
+            .search-row { flex-direction: column; gap: 10px; }
+            .btn-search { width: 100%; }
+            .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .scale-label { padding: 12px 4px; font-size: 14px; }
         }
-        /* ===== 大螢幕桌面 (> 1200px) ===== */
-        @media (min-width: 1201px) {
-            .main-content { max-width: 720px; padding: 28px 32px 50px; }
-            .card { padding: 36px; }
-            .card-title { font-size: 22px; }
-            .form-input, .form-textarea, .form-select { padding: 14px 18px; font-size: 16px; }
-            .scale-label { padding: 16px 10px; font-size: 16px; }
-            .btn-submit { padding: 18px 28px; font-size: 17px; }
-        }
-        /* ===== 平板直向 & 大手機 (576px - 767px) ===== */
-        @media (min-width: 576px) and (max-width: 767px) {
-            .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 14px; }
-            .search-row { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .search-row .btn-search { grid-column: span 2; width: 100%; }
-        }
-        /* ===== 小手機 (361px - 480px) ===== */
         @media (max-width: 480px) {
-            .header { padding: 12px 14px; }
-            .logo { font-size: 16px; gap: 6px; }
-            .logo-icon { font-size: 20px; }
-            .logo-sub { font-size: 12px; }
-            .coach-info-bar { padding: 10px 14px; }
-            .coach-avatar { width: 32px; height: 32px; font-size: 13px; }
-            .coach-name { font-size: 14px; }
-            .coach-role { font-size: 11px; }
-            .main-content { padding: 14px 10px 36px; }
-            .card { padding: 18px 20px; border-radius: 14px; }
-            .card-icon { width: 36px; height: 36px; font-size: 16px; border-radius: 10px; }
-            .card-title { font-size: 17px; }
-            .card-desc { font-size: 12px; margin-left: 44px; margin-bottom: 20px; }
-            .form-group { margin-bottom: 20px; }
-            .form-label { font-size: 14px; margin-bottom: 8px; }
-            .form-label .hint { font-size: 12px; }
-            .form-input, .form-textarea { padding: 10px 12px; font-size: 16px; border-radius: 10px; }
-            .form-textarea { min-height: 90px; }
-            .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .search-row { grid-template-columns: 1fr; gap: 10px; }
-            .search-input-group input { padding: 10px 12px; font-size: 16px; }
-            .btn-search { width: 100%; grid-column: auto; padding: 12px 16px; }
-            .inline-radio-group { gap: 14px; }
-            .inline-radio-option input[type="radio"] { width: 16px; height: 16px; }
-            .inline-radio-text { font-size: 14px; gap: 5px; }
-            .scale-group { gap: 3px; }
-            .scale-label { padding: 10px 2px; font-size: 13px; border-radius: 6px; }
-            .scale-labels { font-size: 11px; margin-top: 6px; }
-            .radio-group, .checkbox-group { gap: 6px; }
-            .radio-label, .checkbox-label { padding: 9px 14px; font-size: 13px; }
-            .section-title { font-size: 14px; margin: 22px 0 12px; padding-bottom: 8px; }
-            .section-dot { width: 6px; height: 6px; }
-            .notice-box { padding: 12px 14px; }
-            .notice-title { font-size: 13px; margin-bottom: 8px; }
-            .notice-list { font-size: 12px; line-height: 1.7; padding-left: 16px; }
-            .member-search-section { padding: 14px; }
-            .search-title { font-size: 13px; }
-            .member-avatar { width: 36px; height: 36px; font-size: 14px; }
-            .member-name { font-size: 14px; }
-            .member-id { font-size: 11px; padding: 2px 6px; }
-            .submit-section { margin-top: 28px; }
-            .btn-submit { padding: 14px 20px; font-size: 15px; border-radius: 10px; }
-            .success-icon { width: 70px; height: 70px; font-size: 36px; }
-            .success-title { font-size: 22px; }
-            .success-message { font-size: 14px; }
-            .btn-reset { padding: 12px 32px; font-size: 14px; }
-            .error-icon { width: 70px; height: 70px; font-size: 36px; }
-            .error-title { font-size: 18px; }
-            .error-desc { font-size: 13px; }
-        }
-        /* ===== 超小手機 (< 360px) ===== */
-        @media (max-width: 360px) {
-            .header { padding: 10px 12px; }
-            .logo { font-size: 14px; gap: 4px; }
-            .logo-icon { font-size: 16px; }
-            .logo-sub { font-size: 11px; }
-            .coach-info-bar { padding: 8px 10px; }
-            .coach-avatar { width: 28px; height: 28px; font-size: 11px; }
-            .coach-details { margin-left: 8px; }
-            .coach-name { font-size: 13px; }
-            .coach-role { font-size: 10px; }
-            .coach-status { font-size: 10px; }
-            .main-content { padding: 10px 6px 30px; }
-            .card { padding: 14px 16px; border-radius: 12px; }
-            .card-icon { width: 32px; height: 32px; font-size: 14px; }
-            .card-title { font-size: 15px; }
-            .card-desc { font-size: 11px; margin-left: 38px; }
-            .form-group { margin-bottom: 16px; }
-            .form-label { font-size: 13px; }
-            .form-label .hint { font-size: 11px; }
-            .form-input, .form-textarea { padding: 9px 10px; font-size: 16px; }
-            .form-textarea { min-height: 80px; }
-            .form-grid-2 { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .search-input-group label { font-size: 11px; }
-            .search-input-group input { padding: 9px 10px; }
-            .btn-search { padding: 10px 14px; font-size: 13px; }
-            .search-result { padding: 10px; font-size: 12px; }
-            .inline-radio-group { gap: 10px; }
-            .inline-radio-text { font-size: 13px; }
-            .scale-group { gap: 2px; }
-            .scale-label { padding: 8px 1px; font-size: 12px; border-radius: 5px; }
-            .scale-labels { font-size: 10px; }
-            .radio-label, .checkbox-label { padding: 7px 10px; font-size: 12px; }
-            .section-title { font-size: 13px; margin: 18px 0 10px; }
-            .section-dot { width: 5px; height: 5px; }
-            .notice-box { padding: 10px 12px; }
-            .notice-title { font-size: 12px; }
-            .notice-list { font-size: 11px; padding-left: 14px; }
-            .member-search-section { padding: 12px; }
-            .search-title { font-size: 12px; }
-            .member-avatar { width: 32px; height: 32px; font-size: 12px; }
-            .member-name { font-size: 13px; }
-            .member-id { font-size: 10px; }
-            .btn-submit { padding: 12px 16px; font-size: 14px; }
-            .success-icon { width: 60px; height: 60px; font-size: 30px; }
-            .success-title { font-size: 20px; }
-            .success-message { font-size: 13px; }
-            .btn-reset { padding: 10px 28px; font-size: 13px; }
-            .error-icon { width: 60px; height: 60px; font-size: 30px; }
-            .error-title { font-size: 16px; }
-            .error-desc { font-size: 12px; }
-            .loading-spinner { width: 40px; height: 40px; }
-            .loading-text { font-size: 13px; }
-        }
-        /* ===== 觸控優化 ===== */
-        @media (hover: none) and (pointer: coarse) {
-            .form-input, .form-textarea, .form-select, .search-input-group input, .other-input { font-size: 16px; }
-            .btn-search, .btn-submit, .btn-reset { min-height: 44px; }
-            .radio-label, .checkbox-label { min-height: 40px; display: inline-flex; align-items: center; }
-            .scale-label { min-height: 44px; }
-        }
-        /* ===== 橫向模式優化 ===== */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .header { padding: 8px 16px; }
-            .logo-sub { display: none; }
-            .coach-info-bar { padding: 6px 16px; }
-            .main-content { padding: 12px 20px 30px; }
-            .card { padding: 16px; }
-            .notice-box { margin-bottom: 12px; }
-            .form-group { margin-bottom: 16px; }
-            .section-title { margin: 16px 0 10px; }
-            .success-page { padding: 20px 24px; }
-            .success-icon { width: 50px; height: 50px; font-size: 24px; margin-bottom: 12px; }
+            .scale-label { padding: 10px 2px; font-size: 13px; }
         }
     </style>
 </head>
@@ -305,7 +170,7 @@
         <div class="logo-sub">【重訓／器械】體驗回報表</div>
     </header>
     <div class="coach-info-bar loading" id="coachInfoBar"><span class="coach-status">正在載入教練資訊...</span></div>
-    <main class="main-content" id="mainContent">
+    <main class="main-content">
         <div class="error-page" id="errorPage">
             <div class="error-icon">⚠️</div>
             <h2 class="error-title" id="errorTitle">無法載入</h2>
@@ -326,14 +191,30 @@
             <div class="card">
                 <div class="card-header"><div class="card-icon">📝</div><div class="card-title">體驗回報表</div></div>
                 <div class="card-desc">請於體驗課後填寫以下資訊</div>
+                
+                <!-- 搜尋諮詢單 -->
                 <div class="member-search-section">
-                    <div class="search-title">🔍 查詢學員姓名</div>
-                    <div class="search-row" style="grid-template-columns: 1fr auto;">
-                        <div class="search-input-group"><label>學員編號</label><input type="text" id="searchMemberId" placeholder="輸入學員編號"></div>
-                        <button type="button" class="btn-search" id="btnSearch" onclick="searchMember()">查詢</button>
+                    <div class="search-title">🔍 搜尋諮詢單</div>
+                    <div class="search-row">
+                        <div class="search-input-group">
+                            <label>輸入客戶姓名</label>
+                            <input type="text" id="searchKeyword" placeholder="輸入姓名關鍵字...">
+                        </div>
+                        <button type="button" class="btn-search" id="btnSearch" onclick="searchConsultation()">搜尋</button>
                     </div>
-                    <div class="search-result" id="searchResult"></div>
+                    <div class="search-results" id="searchResults"></div>
+                    <div class="selected-member" id="selectedMember">
+                        <div class="selected-member-info">
+                            <div class="selected-avatar" id="selectedAvatar">?</div>
+                            <div class="selected-details">
+                                <div class="selected-name" id="selectedName">-</div>
+                                <div class="selected-extra" id="selectedExtra">-</div>
+                            </div>
+                            <button type="button" class="btn-clear" onclick="clearSelection()">清除</button>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="section-title"><span class="section-dot"></span>課程類型</div>
                 <div class="form-group">
                     <label class="form-label">請選擇體驗課程<span class="required">*</span></label>
@@ -349,20 +230,29 @@
                         <label class="inline-radio-option"><input type="radio" name="isAiCustomer" value="否"><span class="inline-radio-text">否</span></label>
                     </div>
                 </div>
+                
                 <div class="section-title"><span class="section-dot" style="background: var(--blue);"></span>基本資訊</div>
                 <div class="form-grid-2">
-                    <div class="form-group"><label class="form-label">學員編號</label><input type="text" class="form-input" id="memberId" placeholder="查詢後自動填入" readonly></div>
-                    <div class="form-group"><label class="form-label">客戶姓名<span class="required">*</span></label><input type="text" class="form-input" id="clientName" placeholder="查詢後自動填入" readonly required><div class="error-message">請先查詢學員編號</div></div>
+                    <div class="form-group">
+                        <label class="form-label">客戶姓名<span class="required">*</span></label>
+                        <input type="text" class="form-input" id="clientName" placeholder="搜尋後自動填入" readonly required>
+                        <input type="hidden" id="clientPhone">
+                        <div class="error-message">請先搜尋並選擇客戶</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">負責教練<span class="required">*</span></label>
+                        <input type="text" class="form-input" id="coachName" placeholder="自動帶入" readonly>
+                    </div>
                 </div>
-                <div class="form-grid-2">
-                    <div class="form-group"><label class="form-label">體驗教練<span class="required">*</span></label><input type="text" class="form-input" id="coachName" placeholder="自動帶入" readonly><div class="error-message">請輸入教練姓名</div></div>
-                    <div class="form-group"><label class="form-label">體驗時段<span class="required">*</span></label><input type="datetime-local" class="form-input" id="sessionTime" required><div class="error-message">請選擇體驗時段</div></div>
+                <div class="form-group">
+                    <label class="form-label">體驗時段<span class="required">*</span></label>
+                    <input type="datetime-local" class="form-input" id="sessionTime" required>
                 </div>
+                
                 <div class="section-title"><span class="section-dot" style="background: var(--pink);"></span>課程內容</div>
                 <div class="form-group">
                     <label class="form-label">課前評估學員的哪些問題<span class="required">*</span><span class="hint">如 Inbody、課前諮詢客人需求等</span></label>
                     <textarea class="form-textarea" id="preAssessment" placeholder="請描述課前評估的內容..." required></textarea>
-                    <div class="error-message">請填寫課前評估內容</div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">今天帶給學生的課程安排內容<span class="required">*</span></label>
@@ -374,6 +264,7 @@
                     </div>
                     <div class="other-input-group"><input type="text" class="other-input" id="contentOther" placeholder="其他（請說明）"></div>
                 </div>
+                
                 <div class="section-title"><span class="section-dot" style="background: var(--yellow);"></span>購課意願評估</div>
                 <div class="form-group">
                     <label class="form-label">課後認為學員買課的意願<span class="required">*</span><span class="hint">當下就成交請選 10</span></label>
@@ -391,12 +282,13 @@
                     </div>
                     <div class="scale-labels"><span>意願低</span><span>當下成交</span></div>
                 </div>
+                
                 <div class="section-title"><span class="section-dot" style="background: var(--blue);"></span>客服協助</div>
                 <div class="form-group">
-                    <label class="form-label">客服人員可以如何關心<span class="required">*</span><span class="hint">請描述學員現場的實際考量，就算有客服人員接手也請填寫課間發現的狀態。<br>例如：價格、課程期限問題、想嘗試館內其他課種、想再體驗其他健身房等。<br>※ 請如實填寫讓客服人員可以釋出彈性，進而協助到老師的成交率</span></label>
+                    <label class="form-label">客服人員可以如何關心<span class="required">*</span><span class="hint">請描述學員現場的實際考量。例如：價格、課程期限問題、想嘗試其他課種等。<br>※ 請如實填寫讓客服人員可以釋出彈性，協助老師成交</span></label>
                     <textarea class="form-textarea" id="customerCare" placeholder="請詳細描述學員的考量與狀態..." required></textarea>
-                    <div class="error-message">請填寫客服關心內容</div>
                 </div>
+                
                 <div class="section-title"><span class="section-dot" style="background: var(--pink);"></span>優惠方案</div>
                 <div class="form-group">
                     <label class="form-label">體驗後看到優惠表對於哪一項優惠更感興趣<span class="required">*</span></label>
@@ -405,74 +297,44 @@
                         <div class="checkbox-option"><input type="checkbox" name="promoInterest" id="promo2" value="AI 3D體態檢測"><label class="checkbox-label" for="promo2">AI 3D體態檢測</label></div>
                         <div class="checkbox-option"><input type="checkbox" name="promoInterest" id="promo3" value="課卡展延"><label class="checkbox-label" for="promo3">課卡展延</label></div>
                         <div class="checkbox-option"><input type="checkbox" name="promoInterest" id="promo4" value="沒有提供優惠表給學員"><label class="checkbox-label" for="promo4">沒有提供優惠表</label></div>
-                        <div class="checkbox-option"><input type="checkbox" name="promoInterest" id="promo5" value="當下談單有行政接手"><label class="checkbox-label" for="promo5">當下行政接手</label></div>
                     </div>
                     <div class="other-input-group"><input type="text" class="other-input" id="promoOther" placeholder="其他（請說明）"></div>
                 </div>
+                
+                <!-- 新增：當下談單人員 -->
+                <div class="section-title"><span class="section-dot" style="background: var(--yellow);"></span>談單人員</div>
+                <div class="form-group">
+                    <label class="form-label">當下談單人員<span class="required">*</span></label>
+                    <div class="inline-radio-group">
+                        <label class="inline-radio-option"><input type="radio" name="salesPerson" value="行政" required><span class="inline-radio-text">行政</span></label>
+                        <label class="inline-radio-option"><input type="radio" name="salesPerson" value="線上客服"><span class="inline-radio-text">線上客服</span></label>
+                        <label class="inline-radio-option"><input type="radio" name="salesPerson" value="老師本人"><span class="inline-radio-text">老師本人</span></label>
+                    </div>
+                </div>
+                
                 <div class="submit-section"><button type="submit" class="btn-submit" id="submitBtn">提交表單 ✓</button></div>
             </div>
         </form>
         <div class="success-page" id="successPage">
             <div class="success-icon">✓</div>
             <h2 class="success-title">提交成功！</h2>
-            <p class="success-message">體驗回報表已成功送出<br>感謝您的填寫</p>
+            <p class="success-message">體驗回報表已成功送出<br>諮詢單資料已同步更新<br>感謝您的填寫</p>
             <button class="btn-reset" onclick="resetForm()">填寫新表單</button>
         </div>
     </main>
-    <div class="loading-overlay" id="loadingOverlay"><div class="loading-spinner"></div><div class="loading-text" id="loadingText">正在提交表單...</div></div>
+    <div class="loading-overlay" id="loadingOverlay"><div class="loading-spinner"></div><div class="loading-text" id="loadingText">載入中...</div></div>
 
     <script>
-        /* ╔══════════════════════════════════════════════════════════════════════════════╗
-           ║                                                                              ║
-           ║                     🔧 需要填入的設定（只有 2 項）                             ║
-           ║                                                                              ║
-           ╚══════════════════════════════════════════════════════════════════════════════╝ */
-        
+        /* ===== 設定 ===== */
         const CONFIG = {
-            
-            /* ┌──────────────────────────────────────────────────────────────────────────┐
-               │                                                                          │
-               │  【必填 1】LINE LIFF ID                                                   │
-               │                                                                          │
-               │  📍 取得方式：LINE Developers Console → 你的 Provider → Channel          │
-               │     → LIFF → 新增或選擇 LIFF App → 複製 LIFF ID                          │
-               │                                                                          │
-               │  📝 格式：'2007474198-xxxxxxxx'                                          │
-               │                                                                          │
-               └──────────────────────────────────────────────────────────────────────────┘ */
-            
             liffId: '2008660081-J3CVqMrj',
-            
-            
-            /* ┌──────────────────────────────────────────────────────────────────────────┐
-               │                                                                          │
-               │  【必填 2】Make.com Webhook URL（單一入口，處理所有功能）                   │
-               │                                                                          │
-               │  📍 取得方式：Make.com → 建立新 Scenario → 新增 Webhook 模組              │
-               │     → 複製 Webhook URL                                                   │
-               │                                                                          │
-               │  📝 格式：'https://hook.us1.make.com/xxxxxxxxxxxxxxxxx'                  │
-               │                                                                          │
-               │  💡 此 Webhook 會透過 action 欄位區分 3 種功能：                           │
-               │     • action: 'search_coach'  → 用 LINE ID 查詢教練                      │
-               │     • action: 'search_member' → 用姓名/電話查詢學員                       │
-               │     • action: 'submit'        → 提交表單到 Google Sheet + MySQL          │
-               │                                                                          │
-               └──────────────────────────────────────────────────────────────────────────┘ */
-            
-            webhookUrl: 'https://hook.us2.make.com/5fvtrvpkxzfnwgu6six72t3jpu8fmhu3'
-            
+            appsScriptUrl: '貼上你的_Apps_Script_Web_App_URL'
         };
 
-        /* ╔══════════════════════════════════════════════════════════════════════════════╗
-           ║                       ⬇️ 以下程式碼不需要修改 ⬇️                              ║
-           ╚══════════════════════════════════════════════════════════════════════════════╝ */
+        let currentCoach = { lineId: '', name: '', displayName: '' };
+        let selectedConsultation = null;
 
-        let currentCoach = { lineId: '', name: '', displayName: '', coachId: '' };
-        let matchedMember = null;
-
-        // 帶超時的 fetch
-        async function fetchWithTimeout(url, options, timeout = 10000) {
+        async function fetchWithTimeout(url, options, timeout = 15000) {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), timeout);
             try {
@@ -487,104 +349,44 @@
 
         document.addEventListener('DOMContentLoaded', async function() {
             showLoading('正在初始化...');
-            console.log('🚀 開始初始化...');
-            console.log('📋 CONFIG:', { liffId: CONFIG.liffId, webhookUrl: CONFIG.webhookUrl?.substring(0, 50) + '...' });
             
-            if (CONFIG.liffId.includes('____') || CONFIG.webhookUrl.includes('____')) {
-                hideLoading();
-                showError('設定未完成', '請先在程式碼中填入：\n\n1. LIFF ID\n2. Make Webhook URL');
-                return;
-            }
+            document.getElementById('searchKeyword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); searchConsultation(); }
+            });
+            
             try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const urlLineId = urlParams.get('lineid') || urlParams.get('lineId') || urlParams.get('line_id');
-                
-                console.log('📱 初始化 LIFF...');
                 await liff.init({ liffId: CONFIG.liffId });
-                console.log('✅ LIFF 初始化成功');
-                console.log('📊 LIFF 狀態:', { isLoggedIn: liff.isLoggedIn(), isInClient: liff.isInClient() });
-                
                 if (liff.isLoggedIn()) {
-                    console.log('👤 取得 LINE Profile...');
                     const profile = await liff.getProfile();
                     currentCoach.lineId = profile.userId;
                     currentCoach.displayName = profile.displayName;
-                    console.log('✅ LINE Profile:', profile);
-                    await fetchCoachInfo(currentCoach.lineId);
-                } else if (urlLineId) {
-                    console.log('🔗 使用 URL 參數 lineId:', urlLineId);
-                    currentCoach.lineId = urlLineId;
-                    await fetchCoachInfo(urlLineId);
+                    currentCoach.name = profile.displayName;
+                    showCoachInfo();
+                    showForm();
                 } else {
-                    // 未登入，不管是 LINE 內還是外部瀏覽器都跳轉登入
-                    console.log('🔐 需要登入，跳轉中...');
                     liff.login();
                     return;
                 }
             } catch (err) {
-                console.error('❌ LIFF Error:', err);
+                console.error('LIFF Error:', err);
                 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    console.log('🧪 本機測試模式');
-                    currentCoach = { lineId: 'TEST_LINE_ID', name: '測試教練', displayName: '測試教練', coachId: 'TEST001' };
-                    showCoachInfo(); showForm();
+                    currentCoach = { lineId: 'TEST', name: '測試教練', displayName: '測試教練' };
+                    showCoachInfo();
+                    showForm();
                 } else {
-                    showError('初始化失敗', err.message || '請重新整理頁面或聯繫管理員');
+                    showError('初始化失敗', err.message);
                 }
             }
             hideLoading();
         });
 
-        async function fetchCoachInfo(lineId) {
-            console.log('🔍 查詢教練資料...', { lineId, webhookUrl: CONFIG.webhookUrl?.substring(0, 50) });
-            try {
-                const response = await fetchWithTimeout(CONFIG.webhookUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'search_coach', lineId: lineId })
-                }, 10000); // 10秒超時
-                
-                console.log('📥 Webhook 回應狀態:', response.status);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('📦 Webhook 回應資料:', data);
-                    if (data && data.found) {
-                        currentCoach.name = data.name;
-                        currentCoach.coachId = data.id;
-                        showCoachInfo(); showForm(); return;
-                    }
-                }
-                // 找不到教練，用 LINE 顯示名稱
-                if (currentCoach.displayName) {
-                    currentCoach.name = currentCoach.displayName;
-                    showCoachInfo(); showForm();
-                    console.warn('⚠️ 找不到教練資料，使用 LINE 顯示名稱:', currentCoach.displayName);
-                } else {
-                    showError('找不到教練資料', `LINE ID: ${lineId}\n\n請聯繫管理員在 coaches 表設定此 LINE ID`);
-                }
-            } catch (err) {
-                console.error('❌ Fetch coach error:', err);
-                if (err.name === 'AbortError') {
-                    console.error('⏰ Webhook 請求超時（10秒）');
-                }
-                // 即使查詢失敗，有 displayName 就先顯示
-                if (currentCoach.displayName) { 
-                    currentCoach.name = currentCoach.displayName; 
-                    showCoachInfo(); 
-                    showForm();
-                    console.warn('⚠️ 使用 LINE 顯示名稱作為備用');
-                } else { 
-                    showError('查詢教練資料失敗', `錯誤：${err.message}\n\n可能原因：\n1. Make Webhook 未啟動\n2. Webhook URL 不正確\n3. 網路連線問題`); 
-                }
-            }
-        }
-
         function showCoachInfo() {
             const coachBar = document.getElementById('coachInfoBar');
             coachBar.classList.remove('loading');
-            coachBar.innerHTML = `<div class="coach-avatar">${currentCoach.name?.charAt(0) || '?'}</div><div class="coach-details"><div class="coach-name">${escapeHtml(currentCoach.name || currentCoach.displayName || '未知')}</div><div class="coach-role">體驗教練</div></div><span class="coach-status">已登入 ✓</span>`;
-            document.getElementById('coachName').value = currentCoach.name || currentCoach.displayName || '';
-            const now = new Date(); now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            coachBar.innerHTML = `<div class="coach-avatar">${currentCoach.name?.charAt(0) || '?'}</div><div class="coach-details"><div class="coach-name">${escapeHtml(currentCoach.name)}</div><div class="coach-role">體驗教練</div></div><span class="coach-status">已登入 ✓</span>`;
+            document.getElementById('coachName').value = currentCoach.name || '';
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
             document.getElementById('sessionTime').value = now.toISOString().slice(0, 16);
         }
 
@@ -596,115 +398,174 @@
         }
 
         function showError(title, desc) {
-            hideLoading(); // 確保隱藏 loading
+            hideLoading();
             document.getElementById('errorPage').classList.add('active');
             document.getElementById('errorTitle').textContent = title;
             document.getElementById('errorDesc').textContent = desc;
-            document.getElementById('noticeBox').style.display = 'none';
-            document.getElementById('feedbackForm').style.display = 'none';
-            const coachBar = document.getElementById('coachInfoBar');
-            coachBar.classList.remove('loading');
-            coachBar.innerHTML = `<span class="coach-status" style="color: var(--pink-dark);">⚠️ ${title}</span>`;
-            console.log('❌ 顯示錯誤:', title, desc);
         }
 
-        async function searchMember() {
-            const memberId = document.getElementById('searchMemberId').value.trim();
-            const resultDiv = document.getElementById('searchResult');
+        // 搜尋諮詢單
+        async function searchConsultation() {
+            const keyword = document.getElementById('searchKeyword').value.trim();
+            const resultsDiv = document.getElementById('searchResults');
             const btn = document.getElementById('btnSearch');
-            if (!memberId) { resultDiv.className = 'search-result show error'; resultDiv.innerHTML = '請輸入學員編號'; return; }
-            btn.disabled = true; btn.textContent = '查詢中...'; resultDiv.className = 'search-result';
+            
+            if (!keyword) {
+                resultsDiv.className = 'search-results show empty';
+                resultsDiv.innerHTML = '請輸入姓名關鍵字';
+                return;
+            }
+            
+            btn.disabled = true;
+            btn.textContent = '搜尋中...';
+            
             try {
-                const response = await fetchWithTimeout(CONFIG.webhookUrl, {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'search_member', memberId: memberId })
-                });
+                const url = CONFIG.appsScriptUrl + '?action=search&keyword=' + encodeURIComponent(keyword);
+                const response = await fetchWithTimeout(url, { method: 'GET' });
                 const data = await response.json();
-                if (data && data.found && data.member) {
-                    matchedMember = data.member;
-                    resultDiv.className = 'search-result show success';
-                    resultDiv.innerHTML = `<div class="member-info"><div class="member-avatar">${escapeHtml(data.member.name?.charAt(0) || '?')}</div><div class="member-details"><div class="member-name-row"><span class="member-name">${escapeHtml(data.member.name)}</span><span class="member-id">${escapeHtml(data.member.id)}</span></div>${data.member.status ? `<div class="member-extra">${escapeHtml(data.member.status)}</div>` : ''}</div></div>`;
-                    document.getElementById('memberId').value = data.member.id;
-                    document.getElementById('clientName').value = data.member.name;
+                
+                if (data.success && data.data && data.data.length > 0) {
+                    resultsDiv.className = 'search-results show';
+                    resultsDiv.innerHTML = data.data.map((item, index) => `
+                        <div class="search-result-item" onclick="selectConsultation(${index})">
+                            <div class="result-name">${escapeHtml(item.name)}</div>
+                            <div class="result-info">📞 ${escapeHtml(item.phone || '無電話')} ｜ ${escapeHtml(item.course || '')}</div>
+                            <div class="result-coach">👤 負責教練：${escapeHtml(item.coach || '未指定')}</div>
+                        </div>
+                    `).join('');
+                    window.searchResults = data.data;
                 } else {
-                    matchedMember = null;
-                    resultDiv.className = 'search-result show error';
-                    resultDiv.innerHTML = '找不到此學員編號';
+                    resultsDiv.className = 'search-results show empty';
+                    resultsDiv.innerHTML = '找不到符合的諮詢單';
                 }
-            } catch (err) { console.error('Search error:', err); resultDiv.className = 'search-result show error'; resultDiv.innerHTML = '查詢失敗，請稍後再試'; }
-            finally { btn.disabled = false; btn.textContent = '查詢'; }
+            } catch (err) {
+                console.error('Search error:', err);
+                resultsDiv.className = 'search-results show empty';
+                resultsDiv.innerHTML = '搜尋失敗，請稍後再試';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '搜尋';
+            }
+        }
+
+        function selectConsultation(index) {
+            const item = window.searchResults[index];
+            selectedConsultation = item;
+            
+            document.getElementById('searchResults').className = 'search-results';
+            document.getElementById('selectedMember').className = 'selected-member show';
+            document.getElementById('selectedAvatar').textContent = item.name?.charAt(0) || '?';
+            document.getElementById('selectedName').textContent = item.name;
+            document.getElementById('selectedExtra').textContent = `📞 ${item.phone || '無'} ｜ 👤 ${item.coach || '未指定'}`;
+            
+            document.getElementById('clientName').value = item.name || '';
+            document.getElementById('clientPhone').value = item.phone || '';
+        }
+
+        function clearSelection() {
+            selectedConsultation = null;
+            document.getElementById('selectedMember').className = 'selected-member';
+            document.getElementById('clientName').value = '';
+            document.getElementById('clientPhone').value = '';
+            document.getElementById('searchKeyword').value = '';
         }
 
         function validateForm() {
-            let valid = true;
-            ['clientName', 'sessionTime', 'preAssessment', 'customerCare'].forEach(id => {
-                const field = document.getElementById(id); const group = field.closest('.form-group');
-                if (!field.value.trim()) { group.classList.add('has-error'); field.classList.add('error'); valid = false; }
-                else { group.classList.remove('has-error'); field.classList.remove('error'); }
-            });
-            if (!document.querySelector('input[name="courseType"]:checked')) { valid = false; alert('請選擇課程類型'); }
-            if (!document.querySelector('input[name="isAiCustomer"]:checked')) { valid = false; alert('請選擇是否為 AI 檢測之客戶'); }
-            if (!document.querySelector('input[name="purchaseWillingness"]:checked')) { valid = false; alert('請選擇學員買課意願'); }
+            if (!selectedConsultation) { alert('請先搜尋並選擇客戶'); return false; }
+            if (!document.querySelector('input[name="courseType"]:checked')) { alert('請選擇課程類型'); return false; }
+            if (!document.querySelector('input[name="isAiCustomer"]:checked')) { alert('請選擇是否為 AI 檢測之客戶'); return false; }
+            if (!document.querySelector('input[name="purchaseWillingness"]:checked')) { alert('請選擇學員買課意願'); return false; }
+            if (!document.querySelector('input[name="salesPerson"]:checked')) { alert('請選擇當下談單人員'); return false; }
+            if (!document.getElementById('preAssessment').value.trim()) { alert('請填寫課前評估內容'); return false; }
+            if (!document.getElementById('customerCare').value.trim()) { alert('請填寫客服關心內容'); return false; }
+            
             const contentChecked = document.querySelectorAll('input[name="courseContent"]:checked').length > 0;
-            if (!contentChecked && !document.getElementById('contentOther').value.trim()) { valid = false; alert('請選擇或填寫課程安排內容'); }
+            if (!contentChecked && !document.getElementById('contentOther').value.trim()) { alert('請選擇或填寫課程安排內容'); return false; }
+            
             const promoChecked = document.querySelectorAll('input[name="promoInterest"]:checked').length > 0;
-            if (!promoChecked && !document.getElementById('promoOther').value.trim()) { valid = false; alert('請選擇或填寫感興趣的優惠方案'); }
-            return valid;
+            if (!promoChecked && !document.getElementById('promoOther').value.trim()) { alert('請選擇或填寫感興趣的優惠方案'); return false; }
+            
+            return true;
         }
 
         async function submitForm(e) {
-            e.preventDefault(); if (!validateForm()) return;
-            const btn = document.getElementById('submitBtn'); btn.disabled = true; showLoading('正在提交表單...');
+            e.preventDefault();
+            if (!validateForm()) return;
+            
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            showLoading('正在提交表單並更新諮詢單...');
+            
             try {
-                const courseContent = []; document.querySelectorAll('input[name="courseContent"]:checked').forEach(cb => courseContent.push(cb.value));
-                const contentOther = document.getElementById('contentOther').value.trim(); if (contentOther) courseContent.push(contentOther);
-                const promoInterest = []; document.querySelectorAll('input[name="promoInterest"]:checked').forEach(cb => promoInterest.push(cb.value));
-                const promoOther = document.getElementById('promoOther').value.trim(); if (promoOther) promoInterest.push(promoOther);
-                const courseType = document.querySelector('input[name="courseType"]:checked').value;
+                const courseContent = [];
+                document.querySelectorAll('input[name="courseContent"]:checked').forEach(cb => courseContent.push(cb.value));
+                if (document.getElementById('contentOther').value.trim()) courseContent.push(document.getElementById('contentOther').value.trim());
+                
+                const promoInterest = [];
+                document.querySelectorAll('input[name="promoInterest"]:checked').forEach(cb => promoInterest.push(cb.value));
+                if (document.getElementById('promoOther').value.trim()) promoInterest.push(document.getElementById('promoOther').value.trim());
+                
                 const data = {
-                    action: 'submit',
-                    coachLineId: currentCoach.lineId, coachId: currentCoach.coachId, coachName: document.getElementById('coachName').value,
-                    memberId: document.getElementById('memberId').value || null, clientName: document.getElementById('clientName').value,
-                    courseType: courseType, isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
-                    sessionTime: document.getElementById('sessionTime').value.replace('T', ' '), preAssessment: document.getElementById('preAssessment').value,
-                    courseContent: courseContent.join(', '), purchaseWillingness: document.querySelector('input[name="purchaseWillingness"]:checked').value,
-                    customerCare: document.getElementById('customerCare').value, promoInterest: promoInterest.join(', '),
-                    submittedAt: new Date().toISOString().slice(0, 16).replace('T', ' '), source: 'liff_form',
-                    targetSheet: courseType === '重訓' ? 'weight_training' : 'pilates'
+                    clientName: document.getElementById('clientName').value,
+                    phone: document.getElementById('clientPhone').value,
+                    courseType: document.querySelector('input[name="courseType"]:checked').value,
+                    isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
+                    coachName: document.getElementById('coachName').value,
+                    sessionTime: document.getElementById('sessionTime').value,
+                    preAssessment: document.getElementById('preAssessment').value,
+                    courseContent: courseContent.join(', '),
+                    purchaseWillingness: document.querySelector('input[name="purchaseWillingness"]:checked').value,
+                    customerCare: document.getElementById('customerCare').value,
+                    promoInterest: promoInterest.join(', '),
+                    salesPerson: document.querySelector('input[name="salesPerson"]:checked').value,
+                    submittedAt: new Date().toISOString(),
+                    source: 'web_form'
                 };
-                console.log('📤 提交資料:', data);
-                const response = await fetchWithTimeout(CONFIG.webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }, 15000);
-                console.log('📥 提交回應:', response.status);
-                if (!response.ok) throw new Error('提交失敗');
-                showSuccess();
-            } catch (err) { 
-                console.error('❌ Submit error:', err); 
-                if (err.name === 'AbortError') {
-                    alert('提交超時，請檢查網路連線後重試');
+                
+                const response = await fetchWithTimeout(CONFIG.appsScriptUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                if (result.success) {
+                    showSuccess();
                 } else {
-                    // 即使有錯誤，也顯示成功（資料可能已送出）
-                    showSuccess(); 
+                    throw new Error(result.error || '提交失敗');
                 }
+            } catch (err) {
+                console.error('Submit error:', err);
+                alert('提交失敗：' + err.message);
+            } finally {
+                hideLoading();
+                btn.disabled = false;
             }
-            finally { hideLoading(); btn.disabled = false; }
         }
 
-        function showLoading(text = '載入中...') { document.getElementById('loadingText').textContent = text; document.getElementById('loadingOverlay').classList.add('active'); }
+        function showLoading(text) { document.getElementById('loadingText').textContent = text; document.getElementById('loadingOverlay').classList.add('active'); }
         function hideLoading() { document.getElementById('loadingOverlay').classList.remove('active'); }
-        function showSuccess() { document.getElementById('feedbackForm').style.display = 'none'; document.getElementById('noticeBox').style.display = 'none'; document.getElementById('successPage').classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function showSuccess() {
+            document.getElementById('feedbackForm').style.display = 'none';
+            document.getElementById('noticeBox').style.display = 'none';
+            document.getElementById('successPage').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         function resetForm() {
-            document.getElementById('feedbackForm').reset(); document.getElementById('feedbackForm').style.display = 'block';
-            document.getElementById('noticeBox').style.display = 'block'; document.getElementById('successPage').classList.remove('active');
-            matchedMember = null; 
-            document.getElementById('memberId').value = ''; 
+            document.getElementById('feedbackForm').reset();
+            document.getElementById('feedbackForm').style.display = 'block';
+            document.getElementById('noticeBox').style.display = 'block';
+            document.getElementById('successPage').classList.remove('active');
+            selectedConsultation = null;
+            document.getElementById('selectedMember').className = 'selected-member';
             document.getElementById('clientName').value = '';
-            document.getElementById('searchMemberId').value = '';
-            document.getElementById('searchResult').className = 'search-result';
-            document.getElementById('coachName').value = currentCoach.name || currentCoach.displayName || '';
-            const now = new Date(); now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            document.getElementById('clientPhone').value = '';
+            document.getElementById('searchKeyword').value = '';
+            document.getElementById('searchResults').className = 'search-results';
+            document.getElementById('coachName').value = currentCoach.name || '';
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
             document.getElementById('sessionTime').value = now.toISOString().slice(0, 16);
-            document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
-            document.querySelectorAll('.form-input, .form-textarea').forEach(el => el.classList.remove('error'));
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         function escapeHtml(text) { if (!text) return ''; const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
