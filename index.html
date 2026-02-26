@@ -568,7 +568,7 @@
                     courseType: document.querySelector('input[name="courseType"]:checked').value,
                     isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
                     coachName: document.getElementById('coachName').value,
-                    sessionTime: document.getElementById('sessionTime').value,
+                    sessionTime: formatSessionTime(document.getElementById('sessionTime').value),
                     preAssessment: document.getElementById('preAssessment').value,
                     courseContent: courseContent.join(', '),
                     purchaseWillingness: document.querySelector('input[name="purchaseWillingness"]:checked').value,
@@ -626,6 +626,24 @@
             document.getElementById('sessionTime').value = now.toISOString().slice(0, 16);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        function formatSessionTime(dateTimeStr) {
+            if (!dateTimeStr) return '';
+            const date = new Date(dateTimeStr);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            
+            const period = hours >= 12 ? '下午' : '上午';
+            const hour12 = hours > 12 ? hours - 12 : (hours === 0 ? 12 : hours);
+            
+            const pad = (n) => n.toString().padStart(2, '0');
+            
+            return `${year}/${month}/${day} ${period} ${hour12}:${pad(minutes)}:${pad(seconds)}`;
+        }
+
         function escapeHtml(text) { if (!text) return ''; const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
     </script>
 </body>
