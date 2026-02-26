@@ -332,7 +332,7 @@
             makeWebhookUrl: 'https://hook.us2.make.com/5fvtrvpkxzfnwgu6six72t3jpu8fmhu3'  // 查詢教練用
         };
 
-        let currentCoach = { lineId: '', name: '', displayName: '', coachId: '' };
+        let currentCoach = { lineId: '', name: '', displayName: '', coachId: '', coachType: '' };
         let selectedConsultation = null;
 
         async function fetchWithTimeout(url, options, timeout = 15000) {
@@ -393,12 +393,14 @@
                 if (response.ok) {
                     const data = await response.json();
                     if (data && data.found) {
-                        currentCoach.name = data.name;
-                        currentCoach.coachId = data.id;
-                        showCoachInfo();
-                        showForm();
-                        return;
-                    }
+    currentCoach.name = data.name;
+    currentCoach.coachId = data.id;
+    currentCoach.coachType = data.coachType;
+    showCoachInfo();
+    showForm();
+    preSelectCourseType(data.coachType);
+    return;
+}
                 }
                 
                 // 找不到教練，用 LINE 顯示名稱
@@ -423,6 +425,18 @@
             }
         }
 
+        // 根據教練類型預選課程
+        function preSelectCourseType(coachType) {
+            if (coachType === 'strength_training') {
+                const radio = document.querySelector('input[name="courseType"][value="重訓"]');
+                if (radio) radio.checked = true;
+            } else if (coachType === 'pilates') {
+                const radio = document.querySelector('input[name="courseType"][value="器械皮拉提斯"]');
+                if (radio) radio.checked = true;
+            }
+            // ai_analysis, stretching 不預選
+        }
+        
         function showCoachInfo() {
             const coachBar = document.getElementById('coachInfoBar');
             coachBar.classList.remove('loading');
