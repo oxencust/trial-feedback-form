@@ -482,13 +482,15 @@
                 const data = await response.json();
                 
                 if (data.success && data.data && data.data.length > 0) {
-                    resultsDiv.className = 'search-results show';
-                    resultsDiv.innerHTML = data.data.map((item, index) => `
-                        <div class="search-result-item" onclick="selectConsultation(${index})">
-                            <div class="result-name">${escapeHtml(item.name)}</div>
-                        </div>
-                    `).join('');
-                    window.searchResults = data.data;
+    resultsDiv.className = 'search-results show';
+    resultsDiv.innerHTML = 
+        '<div style="padding: 10px 14px; font-size: 13px; color: #66888e; border-bottom: 1px solid #d8e0db;">👆 請點選</div>' +
+        data.data.map((item, index) => `
+            <div class="search-result-item" onclick="selectConsultation(${index})">
+                <div class="result-name">${escapeHtml(item.name)}</div>
+            </div>
+        `).join('');
+    window.searchResults = data.data;
                 } else {
                     resultsDiv.className = 'search-results show empty';
                     resultsDiv.innerHTML = '找不到符合的諮詢單';
