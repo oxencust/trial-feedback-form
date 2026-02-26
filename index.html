@@ -568,14 +568,14 @@
                     courseType: document.querySelector('input[name="courseType"]:checked').value,
                     isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
                     coachName: document.getElementById('coachName').value,
-                    sessionTime: formatSessionTime(document.getElementById('sessionTime').value),
+                    sessionTime: document.getElementById('sessionTime').value,
                     preAssessment: document.getElementById('preAssessment').value,
                     courseContent: courseContent.join(', '),
                     purchaseWillingness: document.querySelector('input[name="purchaseWillingness"]:checked').value,
                     customerCare: document.getElementById('customerCare').value,
                     promoInterest: promoInterest.join(', '),
                     salesPerson: document.querySelector('input[name="salesPerson"]:checked').value,
-                    submittedAt: new Date().toISOString(),
+                    submittedAt: formatSessionTime(new Date()),
                     source: 'web_form'
                 };
                 
