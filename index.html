@@ -328,7 +328,7 @@
         /* ===== 設定 ===== */
         const CONFIG = {
             liffId: '2007947083-zbtrhdFK',
-            appsScriptUrl: 'https://script.google.com/macros/s/AKfycbzyGWlVQobkQKTM56qZd6z8hsV1wyUfs5EYlOWFSYb_hBo6k84WeOn4V2UaSLPLApYt/exec',
+            appsScriptUrl: 'https://script.google.com/macros/s/AKfycbzVymzNnW-DkOXtWT4DWWUvSf0G6MGXw58omwhcUnJUFs8KpUB_idsHHkojvo7TvKVF/exec',
             makeWebhookUrl: 'https://hook.us2.make.com/5fvtrvpkxzfnwgu6six72t3jpu8fmhu3'  // 查詢教練用
         };
 
@@ -580,10 +580,11 @@
                 };
                 
                 const response = await fetchWithTimeout(CONFIG.appsScriptUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data),
+    redirect: 'follow'
+});
                 
                 const result = await response.json();
                 if (result.success) {
