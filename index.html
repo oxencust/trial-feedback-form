@@ -564,7 +564,7 @@
                 
                 const data = {
                     clientName: document.getElementById('clientName').value,
-                    phone: document.getElementById('clientPhone').value,
+                    phone: formatPhone(document.getElementById('clientPhone').value),
                     courseType: document.querySelector('input[name="courseType"]:checked').value,
                     isAiCustomer: document.querySelector('input[name="isAiCustomer"]:checked').value,
                     coachName: document.getElementById('coachName').value,
@@ -642,6 +642,15 @@
             const pad = (n) => n.toString().padStart(2, '0');
             
             return `${year}/${month}/${day} ${period} ${hour12}:${pad(minutes)}:${pad(seconds)}`;
+        }
+
+        function formatPhone(phone) {
+            if (!phone) return '';
+            phone = phone.toString().trim();
+            if (phone.length === 9 && !phone.startsWith('0')) {
+                return '0' + phone;
+            }
+            return phone;
         }
 
         function escapeHtml(text) { if (!text) return ''; const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
