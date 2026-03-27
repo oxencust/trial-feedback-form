@@ -453,14 +453,27 @@
         }
         
         function showCoachInfo() {
-            const coachBar = document.getElementById('coachInfoBar');
-            coachBar.classList.remove('loading');
-            coachBar.innerHTML = `<div class="coach-avatar">${currentCoach.name?.charAt(0) || '?'}</div><div class="coach-details"><div class="coach-name">${escapeHtml(currentCoach.name)}</div><div class="coach-role">體驗教練</div></div><span class="coach-status">已登入 ✓</span>`;
-            document.getElementById('coachName').value = currentCoach.name || '';
-            const now = new Date();
-            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-            document.getElementById('sessionTime').value = now.toISOString().slice(0, 16);
+    const coachBar = document.getElementById('coachInfoBar');
+    coachBar.classList.remove('loading');
+    coachBar.innerHTML = `<div class="coach-avatar">${currentCoach.name?.charAt(0) || '?'}</div><div class="coach-details"><div class="coach-name">${escapeHtml(currentCoach.name)}</div><div class="coach-role">體驗教練</div></div><span class="coach-status">已登入 ✓</span>`;
+    
+    // 帶入教練名稱，名單沒有時動態新增
+    const sel = document.getElementById('coachName');
+    if (currentCoach.name) {
+        const exists = [...sel.options].some(o => o.value === currentCoach.name);
+        if (!exists) {
+            const opt = document.createElement('option');
+            opt.value = currentCoach.name;
+            opt.textContent = currentCoach.name;
+            sel.appendChild(opt);
         }
+        sel.value = currentCoach.name;
+    }
+    
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('sessionTime').value = now.toISOString().slice(0, 16);
+}
 
         function showForm() {
             document.getElementById('errorPage').style.display = 'none';
