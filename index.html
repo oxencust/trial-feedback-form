@@ -612,7 +612,7 @@
     headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(data),
     redirect: 'follow'
-});
+}, 30000);
                 
                 const result = await response.json();
                 if (result.success) {
